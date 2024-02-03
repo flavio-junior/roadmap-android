@@ -11,8 +11,9 @@ object Utils {
 
     fun hasInternetConnection(context: Context?): Boolean {
         try {
-            if (context == null)
+            if (context == null) {
                 return false
+            }
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)
                     as ConnectivityManager
             val activeNetwork = connectivityManager.activeNetwork ?: return false

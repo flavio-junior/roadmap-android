@@ -7,7 +7,7 @@ import br.com.weather.brazil.data.dto.Forecast
 import br.com.weather.brazil.databinding.ItemWeatherBinding
 
 class WeatherAdapterItem(
-   private val forecasts: List<Forecast> = mutableListOf()
+    private val forecasts: List<Forecast> = mutableListOf()
 ) : RecyclerView.Adapter<ForecastsItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastsItemHolder {

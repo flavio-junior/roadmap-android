@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class WeatherViewModel(
     private val weatherRepository: WeatherRepository,
     application: Application
-): BaseViewModel(application) {
+) : BaseViewModel(application) {
 
     private val _responseWeather: MutableLiveData<NetWorkResult<Weather>> = MutableLiveData()
     val responseWeather: LiveData<NetWorkResult<Weather>> = _responseWeather

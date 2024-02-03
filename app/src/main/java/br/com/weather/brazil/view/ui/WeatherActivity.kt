@@ -32,7 +32,8 @@ class WeatherActivity : AppCompatActivity() {
     private fun observeRequest() {
         try {
             viewModel.responseWeather.observe(this) { response ->
-                val apiResultHandler = ApiResultHandler<Weather>(this@WeatherActivity,
+                val apiResultHandler = ApiResultHandler<Weather>(
+                    this@WeatherActivity,
                     onLoading = { stateProgress(enabled = true) },
                     onSuccess = {
                         stateProgress(enabled = false)
@@ -59,7 +60,8 @@ class WeatherActivity : AppCompatActivity() {
                     },
                     onFailure = {
                         stateProgress(false)
-                    })
+                    }
+                )
                 apiResultHandler.handleApiResult(response)
             }
         } catch (e: Exception) {
