@@ -2,6 +2,7 @@ package br.com.weather.brazil.di
 
 import br.com.weather.brazil.data.repository.WeatherRepository
 import br.com.weather.brazil.data.repository.WeatherRepositoryImp
+import br.com.weather.brazil.domain.WeatherConverter
 import br.com.weather.brazil.network.provideConverterFactory
 import br.com.weather.brazil.network.provideHttpClient
 import br.com.weather.brazil.network.provideRetrofit
@@ -18,6 +19,7 @@ val WeatherModule = module {
     single { provideService(get()) }
     factory { WeatherRepository(get()) }
     factory { WeatherRepositoryImp(get()) }
-    viewModel { WeatherViewModel(get(), get()) }
+    factory { WeatherConverter() }
+    viewModel { WeatherViewModel(get(), get(), get()) }
     viewModelOf(::WeatherViewModel)
 }

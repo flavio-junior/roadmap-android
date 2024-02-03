@@ -2,7 +2,7 @@ package br.com.weather.brazil.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class Forecast(
+data class ForecastRequestDTO(
     @SerializedName("cloudiness")
     val cloudiness: Double,
     @SerializedName("condition")

@@ -2,11 +2,11 @@ package br.com.weather.brazil.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class Results(
+data class ResultsRequestDTO(
     @SerializedName("city_name")
     val cityName: String,
     @SerializedName("forecast")
-    val forecast: List<Forecast>,
+    val forecastRequestDTO: List<ForecastRequestDTO>,
     @SerializedName("humidity")
     val humidity: Int,
     @SerializedName("img_id")
