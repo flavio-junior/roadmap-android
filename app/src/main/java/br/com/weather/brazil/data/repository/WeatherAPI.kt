@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface WeatherAPI {
     @GET("weather")
-    fun getWeather(): Response<Weather>
+    suspend fun getWeather(): Response<Weather>
 }

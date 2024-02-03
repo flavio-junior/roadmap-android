@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 class WeatherRepository(
     private val weatherRepositoryImp: WeatherRepositoryImp
 ) {
-    fun getWeather(context: Context): Flow<NetWorkResult<Weather>> {
+    suspend fun getWeather(context: Context): Flow<NetWorkResult<Weather>> {
         return toResultFlow(context) {
             weatherRepositoryImp.getWeather()
         }
