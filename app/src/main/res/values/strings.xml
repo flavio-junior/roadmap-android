@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weather Brazil</string>
+    <string name="loading_text">Carregando...</string>
+    <string name="next_days">Próximos dias</string>
 </resources>

@@ -4,15 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/size_16"
     tools:context=".view.ui.WeatherActivity">
 
+    <ImageView
+        android:id="@+id/icon_condition_slug"
+        android:layout_width="@dimen/size_48"
+        android:layout_height="@dimen/size_48"
+        android:src="@drawable/distance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/main_text"
+        android:id="@+id/city_name"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_48"
+        android:layout_marginStart="@dimen/size_8"
+        android:layout_marginEnd="@dimen/size_8"
+        android:text="Hello World!"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_condition_slug"
+        app:layout_constraintEnd_toStartOf="@+id/temp"
+        app:layout_constraintStart_toEndOf="@+id/icon_condition_slug"
+        app:layout_constraintTop_toTopOf="@+id/icon_condition_slug" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/size_48"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/city_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/city_name"
+        tools:text="32" />
+
+    <TextView
+        android:id="@+id/next_days"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_16"
+        android:text="@string/next_days"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_condition_slug" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_next_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="@dimen/size_16"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next_days"
+        tools:listitem="@layout/item_weather"/>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:indeterminate="true"
+        app:indicatorColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_16"
+        android:text="@string/loading_text"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/loading_request"
+        app:layout_constraintStart_toStartOf="@+id/loading_request"
+        app:layout_constraintTop_toBottomOf="@+id/loading_request" />
 </androidx.constraintlayout.widget.ConstraintLayout>

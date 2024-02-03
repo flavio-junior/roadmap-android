@@ -11,12 +11,18 @@ data class Results(
     val humidity: Int,
     @SerializedName("img_id")
     val imgId: String,
+    @SerializedName("city")
+    val city: String,
     @SerializedName("latitude")
     val latitude: Double,
     @SerializedName("longitude")
     val longitude: Double,
     @SerializedName("moon_phase")
     val moonPhase: String,
+    @SerializedName("condition_slug")
+    val conditionSlug: String,
+    @SerializedName("description")
+    val description: String,
     @SerializedName("rain")
     val rain: Double,
     @SerializedName("sunrise")

@@ -2,9 +2,12 @@ package br.com.weather.brazil.view.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import br.com.weather.brazil.R
 import br.com.weather.brazil.data.dto.Weather
 import br.com.weather.brazil.databinding.ActWeatherBinding
 import br.com.weather.brazil.utils.ApiResultHandler
+import br.com.weather.brazil.view.adapter.WeatherAdapterItem
 import br.com.weather.brazil.view.viewmodel.WeatherViewModel
 import org.koin.android.ext.android.inject
 
@@ -30,17 +33,32 @@ class WeatherActivity : AppCompatActivity() {
         try {
             viewModel.responseWeather.observe(this) { response ->
                 val apiResultHandler = ApiResultHandler<Weather>(this@WeatherActivity,
-                    onLoading = {
-                        showProgress(true)
-                    },
+                    onLoading = { stateProgress(enabled = true) },
                     onSuccess = {
-                        showProgress(false)
+                        stateProgress(enabled = false)
                         it?.let {
-                            binding.mainText.text = it.results.cityName
+                            when (it.results.conditionSlug) {
+                                "storm" -> binding.iconConditionSlug.setImageResource(R.drawable.storm)
+                                "snow" -> binding.iconConditionSlug.setImageResource(R.drawable.snow)
+                                "hail" -> binding.iconConditionSlug.setImageResource(R.drawable.hail)
+                                "rain" -> binding.iconConditionSlug.setImageResource(R.drawable.rain)
+                                "fog" -> binding.iconConditionSlug.setImageResource(R.drawable.fog)
+                                "clear_day" -> binding.iconConditionSlug.setImageResource(R.drawable.clear_day)
+                                "clear_night" -> binding.iconConditionSlug.setImageResource(R.drawable.cloudly_night)
+                                "cloud" -> binding.iconConditionSlug.setImageResource(R.drawable.cloud)
+                                "cloudly_day" -> binding.iconConditionSlug.setImageResource(R.drawable.clear_day)
+                                "cloudly_night" -> binding.iconConditionSlug.setImageResource(R.drawable.cloudly_night)
+                                "none_day" -> binding.iconConditionSlug.setImageResource(R.drawable.none_day)
+                                "none_night" -> binding.iconConditionSlug.setImageResource(R.drawable.none_night)
+                            }
+                            binding.cityName.text = it.results.cityName
+                            binding.temp.text = "${it.results.temp} º"
+                            binding.recyclerviewNextDays.adapter =
+                                WeatherAdapterItem(it.results.forecast)
                         }
                     },
                     onFailure = {
-                        binding.mainText.text = "Erro de conexão"
+                        stateProgress(false)
                     })
                 apiResultHandler.handleApiResult(response)
             }
@@ -49,11 +67,8 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun showProgress(enabled: Boolean = false) {
-        if (enabled) {
-
-        } else {
-            binding.mainText.text = "Carregando"
-        }
+    private fun stateProgress(enabled: Boolean) {
+        binding.loadingRequest.isIndeterminate = enabled
+        binding.loadingText.isVisible = enabled
     }
 }
