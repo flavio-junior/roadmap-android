@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+apply(from = "${project.rootDir}/config/detekt/detekt.gradle")
+
 android {
     namespace = "br.com.weather.brazil"
     compileSdk = 34
