@@ -1,12 +1,17 @@
 package br.com.weather.brazil.data.repository
 
+import android.content.Context
 import br.com.weather.brazil.data.dto.Weather
-import retrofit2.Call
-import retrofit2.http.GET
+import br.com.weather.brazil.utils.NetWorkResult
+import br.com.weather.brazil.utils.toResultFlow
+import kotlinx.coroutines.flow.Flow
 
-interface WeatherRepository {
-
-    @GET("weather")
-    fun getWeather(): Call<Weather>
-
+class WeatherRepository(
+    private val weatherRepositoryImp: WeatherRepositoryImp
+) {
+    fun getWeather(context: Context): Flow<NetWorkResult<Weather>> {
+        return toResultFlow(context) {
+            weatherRepositoryImp.getWeather()
+        }
+    }
 }
