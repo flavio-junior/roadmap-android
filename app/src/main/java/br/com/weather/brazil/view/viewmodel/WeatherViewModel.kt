@@ -17,8 +17,8 @@ class WeatherViewModel(
     private val _responseWeather: MutableLiveData<NetWorkResult<Weather>> = MutableLiveData()
     val responseWeather: LiveData<NetWorkResult<Weather>> = _responseWeather
 
-    fun getWeather() = viewModelScope.launch {
-        weatherRepository.getWeather(context).collect {
+    fun getWeather(latitude: Double, longitude: Double) = viewModelScope.launch {
+        weatherRepository.getWeather(context, latitude, longitude).collect {
             _responseWeather.value = it
         }
     }

@@ -15,7 +15,7 @@ object Utils {
                 return false
             }
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)
-                    as ConnectivityManager
+                as ConnectivityManager
             val activeNetwork = connectivityManager.activeNetwork ?: return false
             val networkCapabilities =
                 connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
