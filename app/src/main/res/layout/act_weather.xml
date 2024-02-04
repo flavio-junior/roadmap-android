@@ -16,57 +16,79 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/city_name"
+        android:id="@+id/text_city_name"
         android:layout_width="@dimen/size_0"
         android:layout_height="@dimen/size_48"
         android:layout_marginStart="@dimen/size_8"
-        android:layout_marginEnd="@dimen/size_8"
         android:text="Hello World!"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/icon_condition_slug"
-        app:layout_constraintEnd_toStartOf="@+id/temp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_condition_slug"
         app:layout_constraintTop_toTopOf="@+id/icon_condition_slug" />
 
+    <ImageView
+        android:id="@+id/icon_thermostat"
+        android:layout_width="@dimen/size_48"
+        android:layout_height="@dimen/size_48"
+        android:layout_marginTop="@dimen/size_8"
+        android:src="@drawable/thermostat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_condition_slug" />
+
     <TextView
-        android:id="@+id/temp"
+        android:id="@+id/text_temp"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/size_48"
+        android:layout_marginStart="@dimen/size_8"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/city_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/city_name"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_thermostat"
+        app:layout_constraintStart_toEndOf="@+id/icon_thermostat"
+        app:layout_constraintTop_toTopOf="@+id/icon_thermostat"
         tools:text="32" />
 
     <TextView
-        android:id="@+id/next_days"
+        android:id="@+id/text_description"
         android:layout_width="@dimen/size_0"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_16"
+        android:layout_marginTop="@dimen/size_8"
+        android:text="@string/next_days"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_thermostat" />
+
+    <TextView
+        android:id="@+id/text_next_days"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_8"
         android:text="@string/next_days"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_condition_slug" />
+        app:layout_constraintTop_toBottomOf="@+id/text_description" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_next_days"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginTop="@dimen/size_16"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next_days"
-        tools:listitem="@layout/item_weather"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_next_days"
+        tools:listitem="@layout/item_weather" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/loading_request"
@@ -80,7 +102,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/loading_text"
+        android:id="@+id/text_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_16"

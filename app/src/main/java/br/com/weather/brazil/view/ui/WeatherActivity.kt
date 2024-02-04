@@ -71,8 +71,9 @@ class WeatherActivity : AppCompatActivity() {
                         it?.let {
                             binding.iconConditionSlug
                                 .setImageResource(conditionSlugFactory(it.results.conditionSlug))
-                            binding.cityName.text = it.results.cityName
-                            binding.temp.text = getString(R.string.temp, it.results.temp)
+                            binding.textCityName.text = it.results.city
+                            binding.textTemp.text = getString(R.string.temp, it.results.temp)
+                            binding.textDescription.text = it.results.description
                             binding.recyclerviewNextDays.adapter =
                                 WeatherAdapterItem(it.results.forecast)
                         }
@@ -90,6 +91,6 @@ class WeatherActivity : AppCompatActivity() {
 
     private fun stateProgress(enabled: Boolean) {
         binding.loadingRequest.isIndeterminate = enabled
-        binding.loadingText.isVisible = enabled
+        binding.textLoading.isVisible = enabled
     }
 }
