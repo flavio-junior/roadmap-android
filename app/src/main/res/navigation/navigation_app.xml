@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_app"
+    app:startDestination="@id/nav_weather_fragment">
+
+    <fragment
+        android:id="@+id/nav_weather_fragment"
+        android:name="br.com.weather.brazil.view.ui.WeatherFragment"
+        android:label="WeatherFragment"
+        tools:layout="@layout/fragment_weather">
+        <action
+            android:id="@+id/action_to_navigation_bottom_sheet_language"
+            app:destination="@id/nav_bottom_sheet_language" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_bottom_sheet_language"
+        android:name="br.com.weather.brazil.view.ui.BottomSheetLanguage"
+        android:label="BottomSheetLanguage"
+        tools:layout="@layout/bottom_sheet_language" />
+</navigation>
