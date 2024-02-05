@@ -10,9 +10,9 @@ fun conditionSlugFactory(conditionSlug: String): Int {
         "rain" -> R.drawable.rain
         "fog" -> R.drawable.fog
         "clear_day" -> R.drawable.clear_day
-        "clear_night" -> R.drawable.cloudly_night
+        "clear_night" -> R.drawable.clear_night
         "cloud" -> R.drawable.cloud
-        "cloudly_day" -> R.drawable.clear_day
+        "cloudly_day" -> R.drawable.cloudly_day
         "cloudly_night" -> R.drawable.cloudly_night
         "none_day" -> R.drawable.none_day
         "none_night" -> R.drawable.none_night
