@@ -13,4 +13,6 @@
     <string name="last_quarter">Quarto minguante</string>
     <string name="waning_crescent">Lua minguante</string>
     <string name="nullable">Nullable</string>
+    <string name="pt">Português</string>
+    <string name="en">English</string>
 </resources>
