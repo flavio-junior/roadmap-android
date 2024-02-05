@@ -11,6 +11,8 @@ import br.com.weather.brazil.R
 import br.com.weather.brazil.data.dto.Weather
 import br.com.weather.brazil.databinding.ActWeatherBinding
 import br.com.weather.brazil.domain.conditionSlugFactory
+import br.com.weather.brazil.domain.moonPhaseFactory
+import br.com.weather.brazil.domain.moonPhaseImage
 import br.com.weather.brazil.utils.ApiResultHandler
 import br.com.weather.brazil.view.adapter.WeatherAdapterItem
 import br.com.weather.brazil.view.viewmodel.WeatherViewModel
@@ -33,6 +35,7 @@ class WeatherActivity : AppCompatActivity() {
         getLocation()
         observeRequest()
     }
+
     private fun getLocation() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         if (ActivityCompat.checkSelfPermission(
@@ -73,7 +76,14 @@ class WeatherActivity : AppCompatActivity() {
                                 .setImageResource(conditionSlugFactory(it.results.conditionSlug))
                             binding.textCityName.text = it.results.city
                             binding.textTemp.text = getString(R.string.temp, it.results.temp)
-                            binding.textDescription.text = it.results.description
+                            binding.textDescription.text = getString(
+                                R.string.currently,
+                                it.results.description,
+                                it.results.currently
+                            )
+                            binding.imageMoon.setImageResource(moonPhaseImage(it.results.moonPhase))
+                            binding.textMoonPhase.text =
+                                getString(moonPhaseFactory(it.results.moonPhase))
                             binding.recyclerviewNextDays.adapter =
                                 WeatherAdapterItem(it.results.forecast)
                         }

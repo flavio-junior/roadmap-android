@@ -13,6 +13,8 @@ data class Results(
     val imgId: String,
     @SerializedName("city")
     val city: String,
+    @SerializedName("currently")
+    val currently: String,
     @SerializedName("latitude")
     val latitude: Double,
     @SerializedName("longitude")

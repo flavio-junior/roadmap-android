@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Weather Brazil</string>
-    <string name="loading_text">Carregando...</string>
+    <string name="loading_text">Carregando…</string>
     <string name="next_days">Próximos dias</string>
     <string name="temp">%1$d º</string>
+    <string name="currently">%1$s | %2$s</string>
+    <string name="new_moon">Lua nova</string>
+    <string name="waxing_crescent">Lua crescente</string>
+    <string name="first_quarter">Quarto crescente</string>
+    <string name="waxing_gibbous">Gibosa crescente</string>
+    <string name="full">Lua cheia</string>
+    <string name="waning_gibbous">Gibosa minguante</string>
+    <string name="last_quarter">Quarto minguante</string>
+    <string name="waning_crescent">Lua minguante</string>
+    <string name="nullable">Nullable</string>
 </resources>
