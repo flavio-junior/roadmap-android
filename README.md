@@ -3,6 +3,22 @@
 ### Objetivo:
 - **Exibir projetos práticos com os requisitos mais procurados em 2024 para vagas android**
 
+**Tópicos:**
+- Android Jetpack
+- Compose
+- Room Database
+- Kotlin
+- Kotlin Multiplataforma
+- Koin
+- Kodein
+- Hilt
+- MVC
+- MVP
+- MVVM
+- VIPER
+- Retrofit
+- XML
+
 ### Padrões de commits e Pull Request aceitos:
 - **feat:** `Cria nova feature.`
 - **fix:** `Correção de bugs na aplicação.`
