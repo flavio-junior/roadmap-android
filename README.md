@@ -19,6 +19,10 @@
 - Retrofit
 - XML
 
+**Extrutura do repositório:**
+![monorepo](https://github.com/flavio-junior/roadmap-android/blob/main/images/monorepo.png)
+
+
 ### Padrões de commits e Pull Request aceitos:
 - **feat:** `Cria nova feature.`
 - **fix:** `Correção de bugs na aplicação.`
