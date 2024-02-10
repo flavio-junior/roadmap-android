@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "template-compose"
 include(":app")
-include(":app:components")
+include(":components")
