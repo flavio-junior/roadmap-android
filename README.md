@@ -5,6 +5,7 @@
 
 **Tópicos:**
 - Android Jetpack
+- Componetização e criação de módulos
 - Compose
 - Room Database
 - Kotlin
